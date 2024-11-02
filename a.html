@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcademiHub - Share Academic Excellence</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #4f46e5;
+    --secondary: #818cf8;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --success: #22c55e;
+    --error: #ef4444;
+}
+
+body {
+    background: linear-gradient(135deg, #f6f7ff 0%, #ffffff 100%);
+}
+
+/* Navigation */
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 80px;
+    padding: 5rem 5%;
+    text-align: center;
+    background: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
+    color: white;
+    border-radius: 0 0 50px 50px;
+}
+
+/* Notes Section */
+.notes-section {
+    padding: 4rem 5%;
+    background: white;
+    margin: 2rem 0;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.notes-card {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.notes-card h3 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.upload-form {
+    margin-top: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+    padding: 4rem 5%;
+}
+
+.portfolio-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.verification-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--success);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+}
+
+/* Query Box */
+.query-section {
+    padding: 4rem 5%;
+    background: var(--light);
+}
+
+.query-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.query-list {
+    margin-top: 2rem;
+}
+
+.query-item {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.query-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.button {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .notes-grid,
+    .portfolio-card,
+    .query-box {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">AcademiHub</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#notes">Notes</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#query">Queries</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Previous sections remain the same -->
+
+    <section class="notes-section" id="notes">
+        <h2>Study Notes & Resources</h2>
+        <div class="upload-form">
+            <h3>Share Your Notes</h3>
+            <form id="notesUploadForm">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="fileUpload">Upload File</label>
+                    <input type="file" id="fileUpload" accept=".pdf,.doc,.docx">
+                </div>
+                <button type="submit" class="button">Upload Notes</button>
+            </form>
+        </div>
+        <div class="notes-grid" id="notesGrid">
+            <!-- Notes cards will be dynamically added here -->
+        </div>
+    </section>
+
+    <section class="portfolio-section" id="portfolio">
+        <h2>Student Portfolio</h2>
+        <div class="portfolio-card">
+            <form id="portfolioForm">
+                <div class="form-group">
+                    <label for="universityId">University ID</label>
+                    <input type="text" id="universityId" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department</label>
+                    <input type="text" id="department" required>
+                </div>
+                <div class="form-group">
+                    <label for="achievements">Academic Achievements</label>
+                    <textarea id="achievements" rows="3"></textarea>
+                </div>
+                <button type="submit" class="button">Verify Profile</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="query-section" id="query">
+        <h2>Academic Queries</h2>
+        <div class="query-box">
+            <form id="queryForm">
+                <div class="form-group">
+                    <label for="queryTitle">Question Title</label>
+                    <input type="text" id="queryTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="queryDetails">Details</label>
+                    <textarea id="queryDetails" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="queryTags">Tags</label>
+                    <input type="text" id="queryTags" placeholder="e.g., Mathematics, Programming">
+                </div>
+                <button type="submit" class="button">Post Question</button>
+            </form>
+        </div>
+        <div class="query-list" id="queryList">
+            <!-- Query items will be dynamically added here -->
+        </div>
+    </section>
+
+    <!-- Previous footer remains the same -->
+
+    <script>
+// Previous JavaScript remains and new functionality added below
+
+// Notes Section Functionality
+document.getElementById('notesUploadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const subject = document.getElementById('subject').value;
+    const description = document.getElementById('description').value;
+    const file = document.getElementById('fileUpload').files[0];
+
+    // Create notes card
+    const notesCard = document.createElement('div');
+    notesCard.className = 'notes-card';
+    notesCard.innerHTML = `
+        <h3>${subject}</h3>
+        <p>${description}</p>
+        <p class="file-name">File: ${file ? file.name : 'No file uploaded'}</p>
+        <button class="button" onclick="downloadNotes(this)">Download</button>
+    `;
+    document.getElementById('notesGrid').prepend(notesCard);
+    this.reset();
+});
+
+function downloadNotes(button) {
+    // Implement download functionality
+    alert('Download started!');
+}
+
+// Portfolio Validation
+document.getElementById('portfolioForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const universityId = document.getElementById('universityId').value;
+    const department = document.getElementById('department').value;
+
+    // Simulate validation
+    setTimeout(() => {
+        const verificationBadge = document.createElement('div');
+        verificationBadge.className = 'verification-badge';
+        verificationBadge.innerHTML = '<i class="fas fa-check-circle"></i> Verified Student';
+        this.appendChild(verificationBadge);
+    }, 1500);
+});
+
+// Query System
+document.getElementById('queryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const title = document.getElementById('queryTitle').value;
+    const details = document.getElementById('queryDetails').value;
+    const tags = document.getElementById('queryTags').value;
+
+    const queryItem = document.createElement('div');
+    queryItem.className = 'query-item';
+    queryItem.innerHTML = `
+        <h3>${title}</h3>
+        <p>${details}</p>
+        <div class="query-meta">
+            <span>Tags: ${tags}</span>
+            <span>Posted: ${new Date().toLocaleDateString()}</span>
+        </div>
+        <div class="query-actions">
+            <button class="button" onclick="answerQuery(this)">Answer</button>
+        </div>
+    `;
+    document.getElementById('queryList').prepend(queryItem);
+    this.reset();
+});
+
+function answerQuery(button) {
+    const answerForm = document.createElement('div');
+    answerForm.innerHTML = `
+        <div class="form-group">
+            <textarea placeholder="Write your answer..." rows="3"></textarea>
+        </div>
+        <button class="button" onclick="submitAnswer(this)">Submit Answer</button>
+    `;
+    button.parentElement.appendChild(answerForm);
+    button.style.display = 'none';
+}
+
+function submitAnswer(button) {
+    const answer = button.previousElementSibling.querySelector('textarea').value;
+    const answerElement = document.createElement('div');
+    answerElement.className = 'query-answer';
+    answerElement.innerHTML = `
+        <p>${answer}</p>
+        <div class="query-meta">
+            <span>Answered: ${new Date().toLocaleDateString()}</span>
+        </div>
+    `;
+    button.parentElement.parentElement.appendChild(answerElement);
+    button.parentElement.remove();
+}
+
+// Enhanced scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.notes-card, .portfolio-card, .query-item').forEach(element => {
+    observer.observe(element);
+});
+    </script>
+</body>
+</html>
